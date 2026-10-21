@@ -16,6 +16,7 @@ export type CategorySlug =
   | "mode"
   | "maison"
   | "services"
+  | "autres"
 
 export const categories: {
   slug: CategorySlug
@@ -29,6 +30,7 @@ export const categories: {
   { slug: "mode", label: "Mode", fullName: "Mode & Beauté", icon: Shirt },
   { slug: "maison", label: "Maison", fullName: "Maison & Électroménager", icon: Sofa },
   { slug: "services", label: "Services", fullName: "Emploi & Services", icon: Briefcase },
+  { slug: "autres", label: "Autres", fullName: "Autres", icon: LayoutGrid },
 ]
 
 export const allCategoriesIcon = LayoutGrid

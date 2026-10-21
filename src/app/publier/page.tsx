@@ -1,13 +1,18 @@
 import type { Metadata } from "next"
+import { redirect } from "next/navigation"
 import { PhaseNote } from "@/components/layout/phase-note"
+import { getSessionUser } from "@/lib/auth/session"
 
 export const metadata: Metadata = { title: "Publier une annonce" }
 
-export default function PublierPage() {
+export default async function PublierPage() {
+  const user = await getSessionUser()
+  if (!user) redirect("/connexion?mode=inscription&next=/publier")
+
   return (
     <PhaseNote
       title="Publier une annonce"
-      body="La publication s'ouvrira avec la connexion. Elle restera gratuite pour les particuliers. Les photos seront limitées à dix images, aux formats JPG, PNG ou WebP."
+      body="Votre compte est prêt. Le formulaire de publication, avec les photos, arrive à l'étape suivante. Ce sera gratuit pour les particuliers."
     />
   )
 }
